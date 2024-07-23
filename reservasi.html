@@ -1,116 +1,66 @@
 <html lang="en">
-  <head>
-    <title>UTS</title>
-  </head>
 
-  <body>
-    <table
-      border="1"
-      width="100%"
-      height="100%"
-      cellspacing="0"
-      cellpadding="20"
-      bgcolor="fefefe"
-      bordercolor="#b5b5b5"
-    >
-      <tr bgcolor="EEEEEE">
-        <td colspan="5" align="center" height="80">
-          <a href="dashboard.html">
-            <font size="5" color="black">
-              <b> Katsugadun </b>
-            </font>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="5" align="center" height="50">
-          |
-          <a href="produk.html">
-            <font color="black"> Produk </font>
-          </a>
-          |
-          <a href="reservasi.html">
-            <font color="black"> Reservasi </font>
-          </a>
-          |
-          <a href="about.html">
-            <font color="black"> Tentang Perusahaan </font>
-          </a>
-          |
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" bgcolor="#EEEEEE" width="25%"></td>
-        <td colspan="1">
-          <h1>Halaman Reservasi</h1>
-          <hr />
-          <br />
-          <form name="form">
-            <script>
-              function order() {
-                var name = document.form.name.value;
-                var qty = document.form.qty.value;
-                alert("Pesanan " + name + " berjumlah " + qty + " ditambah!");
-                location.reload();
-              }
-            </script>
-            <label for="name"> Pilih Pesanan anda : </label>
-            <select name="name" id="name">
-              <option value="Chicken Katsu Curry">Chicken Katsu Curry</option>
-              <option value="Chicken Tex-Mex">Chicken Tex-Mex</option>
-              <option value="Teriyaki Chicken">Teriyaki Chicken</option>
-              <option value="Bojangles boosts Chicken">
-                Bojangles boosts Chicken
-              </option>
-              <option value="Chipotle Chicken Power Bowl">
-                Chipotle Chicken Power Bowl
-              </option>
-              <option value="Tandoori Chicken Rice Bowl">
-                Tandoori Chicken Rice Bowl
-              </option>
-            </select>
-            <br />
-            <br />
-            <label for="qty">Jumlah : </label>
-            <input size="50" type="number" value="1" name="qty" id="qty" />
-            <br />
-            <br />
-            <hr />
-            <br />
-            <input type="button" value="Pesan" onclick="order()" />
-            <input type="reset" value="Reset" />
-          </form>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </td>
-        <td colspan="2" bgcolor="#EEEEEE" width="25%"></td>
-      </tr>
+<head>
+  <title>UTS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <script src="script.js"></script>
+</head>
 
-      <tr>
-        <td bgcolor="EEEEEE" colspan="5" align="center" height="50">
-          &copy katsugadun 2024
-        </td>
-      </tr>
-    </table>
-  </body>
+<body>
+  <nav>
+    <h1 class="lato-bold"><a href="dashboard.html"> Katsugadun </a></h1>
+  </nav>
+  <menu>
+    <a href="produk.html">Produk</a>
+    <a href="reservasi.html">Reservasi</a>
+    <a href="about.html">Tentang Perusahaan</a>
+  </menu>
+  <main class="reservasi">
+    <h2>Pilih Menu</h1>
+      <div class="container">
+        <div class="field">
+          <p>Nama Menu</p>
+          <span>:</span>
+          <select name="menu" id="menu" onchange="cekHarga()">
+            <option value="Chicken Katsu">Chicken Katsu</option>
+            <option value="Chicken Tex-Mex">Chicken Tex-Mex</option>
+            <option value="Teriyaki Chicken">Teriyaki Chicken</option>
+            <option value="Bojangles boosts Chicken">Bojangles boosts Chicken</option>
+            <option value="Chipotle Chicken Power Bowl">Chipotle Chicken Power Bowl</option>
+            <option value="Tandoori Chicken Rice Bowl">Tandoori Chicken Rice Bowl</option>
+          </select>
+        </div>
+        <div class="field">
+          <p>Harga</p>
+          <span>:</span>
+          <input type="number" id="harga" disabled>
+        </div>
+        <div class="field">
+          <p>Jumlah</p>
+          <span>:</span>
+          <input type="number" id="jumlah" onkeypress="cekTotal(event)">
+        </div>
+        <div class="field">
+          <p>Total Harga</p>
+          <span>:</span>
+          <input type="number" id="total">
+        </div>
+        <input class="button" type="button" value="PESAN" onclick="pesan()">
+      </div>
+      <div class="container">
+
+        <h2>Pesanan</h2>
+        <table id="pesanan">
+
+        </table>
+      </div>
+  </main>
+  <footer>&copy katsugadun 2024</footer>
+</body>
+
 </html>
