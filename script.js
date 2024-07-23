@@ -40,7 +40,16 @@ function pesan() {
 
     var isi = "";
     for (var j = 0; j < menu.length; j++) {
-        isi += "<tr><td>" + (j + 1) + "</td><td>" + menu[j] + "</td><td>" + jumlah[j] + "</td><td>" + totalHarga[j] + "</td></tr>";
+        isi += "<tr><td>" + (j + 1) + "</td><td>" + menu[j] + "</td><td>" + jumlah[j] + "</td><td>" + totalHarga[j] + "</td>" +
+            "<td><button class='button' onclick='checkout(" + j + ")'>Checkout</button></td></tr>";
     }
-    document.getElementById("pesanan").innerHTML = "<tr><th>No</th><th>Menu</th><th>Jumlah</th><th>Total Harga</th></tr>" + isi;
+    document.getElementById("pesanan").innerHTML = "<tr><th>No</th><th>Menu</th><th>Jumlah</th><th>Total Harga</th><th>Action</th></tr>" + isi;
+}
+
+function checkout(index) {
+    localStorage.setItem('menu', JSON.stringify(menu[index]));
+    localStorage.setItem('harga', JSON.stringify(harga[index]));
+    localStorage.setItem('jumlah', JSON.stringify(jumlah[index]));
+    localStorage.setItem('totalHarga', JSON.stringify(totalHarga[index]));
+    window.location.href = 'checkout.html';
 }

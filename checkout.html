@@ -1,0 +1,49 @@
+<html lang="en">
+
+<head>
+    <title>UTS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <script>
+        window.onload = function () {
+            var menu = JSON.parse(localStorage.getItem('menu'));
+            var harga = JSON.parse(localStorage.getItem('harga'));
+            var jumlah = JSON.parse(localStorage.getItem('jumlah'));
+            var totalHarga = JSON.parse(localStorage.getItem('totalHarga'));
+
+            var checkoutDetails = "<table><tr><th>No</th><th>Menu</th><th>Jumlah</th><th>Total Harga</th></tr>";
+            checkoutDetails += "<tr><td>1</td><td>" + menu + "</td><td>" + jumlah + "</td><td>" + totalHarga + "</td></tr>";
+            checkoutDetails += "</table>";
+            document.getElementById('checkoutDetails').innerHTML = checkoutDetails;
+        }
+
+        function confirmPayment() {
+            alert('Makanan Menuju Tempatmu!');
+            localStorage.clear();
+            window.location.href = 'index.html';
+        }
+    </script>
+</head>
+
+<body>
+    <nav>
+        <h1 class="lato-bold"><a href="index.html"> Katsugadun </a></h1>
+    </nav>
+    <menu>
+        <a href="produk.html">Produk</a>
+        <a href="reservasi.html">Reservasi</a>
+        <a href="about.html">Tentang Perusahaan</a>
+    </menu>
+    <main class="checkout">
+        <h2>Checkout</h2>
+        <div id="checkoutDetails"></div>
+        <button class="button" onclick="confirmPayment()">Bayar</button>
+    </main>
+    <footer> &copy katsugadun 2024</footer>
+</body>
+
+</html>
