@@ -13,7 +13,7 @@
 
 <body>
   <nav>
-    <h1 class="lato-bold"><a href="dashboard.html"> Katsugadun </a></h1>
+    <h1 class="lato-bold"><a href="index.html"> Katsugadun </a></h1>
   </nav>
   <menu>
     <a href="produk.html">Produk</a>
@@ -22,7 +22,7 @@
   </menu>
   <main class="reservasi">
     <h2>Pilih Menu</h1>
-      <div class="container">
+      <form class="container">
         <div class="field">
           <p>Nama Menu</p>
           <span>:</span>
@@ -38,12 +38,12 @@
         <div class="field">
           <p>Harga</p>
           <span>:</span>
-          <input type="number" id="harga" disabled>
+          <input type="number" id="harga" disabled required>
         </div>
         <div class="field">
           <p>Jumlah</p>
           <span>:</span>
-          <input type="number" id="jumlah" onkeypress="cekTotal(event)">
+          <input type="number" id="jumlah" onkeypress="cekTotal(event)" required>
         </div>
         <div class="field">
           <p>Total Harga</p>
@@ -51,7 +51,7 @@
           <input type="number" id="total">
         </div>
         <input class="button" type="button" value="PESAN" onclick="pesan()">
-      </div>
+      </form>
       <div class="container">
 
         <h2>Pesanan</h2>
